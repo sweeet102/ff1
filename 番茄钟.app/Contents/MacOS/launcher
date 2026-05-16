@@ -1,0 +1,4 @@
+#!/bin/bash
+DIR="$(cd "$(dirname "$0")" && pwd)"
+nohup /usr/bin/python3 "$DIR/../Resources/pomodoro.py" > /tmp/pomodoro.log 2>&1 &
+exit 0
