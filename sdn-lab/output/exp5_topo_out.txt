@@ -1,0 +1,36 @@
+*** Error setting resource limits. Mininet's performance may be affected.
+Connecting to remote controller at 127.0.0.1:6653
+*** Configuring hosts
+h1 h2 
+*** Starting controller
+c0 
+*** Starting 4 switches
+s1 s2 s3 s4 ...
+*** Starting CLI:
+[*] Adding controller
+[*] Adding switches
+[*] Adding hosts
+[*] Creating links
+[*] Starting network
+
+==================================================
+Load Balancing Topology ready.
+  h1 (10.1.1.1) <-> s1 <-> s2/s3 <-> s4 <-> h2 (10.1.1.2)
+  LB Weight: s2=30%, s3=70%
+==================================================
+To test: h1 iperf -s & ; h2 iperf -c 10.1.1.1 -t 30
+To check groups: ovs-ofctl -O OpenFlow13 dump-groups s1
+                  ovs-ofctl -O OpenFlow13 dump-flows s2
+                  ovs-ofctl -O OpenFlow13 dump-flows s3
+==================================================
+
+mininet> 
+*** Stopping 1 controllers
+c0 
+*** Stopping 6 links
+......
+*** Stopping 4 switches
+s1 s2 s3 s4 
+*** Stopping 2 hosts
+h1 h2 
+*** Done

@@ -1,0 +1,153 @@
+======================================================================
+  实验一: 环境搭建与入门 — SDN 二层交换机
+  对应指导书 Section 1.2 (代码理解) + Section 1.3 (实验过程)
+======================================================================
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 窗口1: Ryu 控制器 (ryu-manager ryu.app.simple_switch_13)           │
+│ 对应 PPT 图 1.2 左上角 / 图 1.1 连接建立过程                       │
+└─────────────────────────────────────────────────────────────────────┘
+
+BRICK SimpleSwitch13
+  CONSUMES EventOFPPacketIn
+  CONSUMES EventOFPSwitchFeatures
+BRICK ofp_event
+  PROVIDES EventOFPPacketIn TO {'SimpleSwitch13': {'main'}}
+  PROVIDES EventOFPSwitchFeatures TO {'SimpleSwitch13': {'config'}}
+
+hello ev <EventOFPHello>                          ← 步骤B: Hello 报文
+move onto config mode                              ← 进入配置协商阶段
+
+EVENT ofp_event->SimpleSwitch13 EventOFPSwitchFeatures  ← 步骤D: 特征请求/响应
+switch features ev:
+  datapath_id=1                                    ← 交换机 dpid=1
+  n_tables=254                                     ← 支持 254 张流表
+  capabilities=79
+
+move onto main mode                                ← 进入主运行阶段
+
+EVENT ofp_event->SimpleSwitch13 EventOFPPacketIn   ← Packet-In 事件
+packet in 1 00:00:00:00:00:04 33:33:00:00:00:16 4
+packet in 1 00:00:00:00:00:03 33:33:ff:00:00:03 3
+packet in 1 00:00:00:00:00:02 33:33:ff:00:00:02 2
+packet in 1 00:00:00:00:00:01 33:33:ff:00:00:01 1    ← 多播/ARP 包上传控制器
+packet in 1 00:00:00:00:00:01 ff:ff:ff:ff:ff:ff 1    ← 广播包 (ARP 请求)
+packet in 1 00:00:00:00:00:02 00:00:00:00:00:01 2    ← h2→h1 (已学习，直接转发)
+packet in 1 00:00:00:00:00:01 00:00:00:00:00:02 1    ← h1→h2 (已学习，直接转发)
+...
+
+说明:
+  - Hello 报文 → TCP 连接建立后协商 OpenFlow 版本 (图1.1 步骤B)
+  - Feature Request/Reply → 获取交换机能力信息 (步骤D)
+  - PacketIn → 交换机遇到未知 MAC 时上传包到控制器
+  - 控制器通过 MAC 学习自动下发流表，后续同样包不再触发 PacketIn
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 窗口2: Mininet (sudo mn --controller=remote --topo=single,4)        │
+│ 对应 PPT 图 1.2 右上角                                             │
+└─────────────────────────────────────────────────────────────────────┘
+
+*** Creating network
+*** Adding controller
+*** Adding hosts: h1 h2 h3 h4
+*** Adding switches: s1
+*** Adding links: (h1,s1) (h2,s1) (h3,s1) (h4,s1)
+*** Configuring hosts
+*** Starting controller c0
+*** Starting 1 switches s1 ...
+*** Waiting for switches to connect
+s1                                                   ← 交换机已连接
+
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4                                       ← h1 能 ping 通全部
+h2 -> h1 h3 h4                                       ← h2 能 ping 通全部
+h3 -> h1 h2 h4                                       ← h3 能 ping 通全部
+h4 -> h1 h2 h3                                       ← h4 能 ping 通全部
+*** Results: 0% dropped (12/12 received) ✅            ← 全部成功
+
+拓扑: single,4 = 1台交换机 + 4台主机 (全部直连交换机)
+IP: 10.0.0.1 ~ 10.0.0.4 (自动分配)
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 窗口3: Wireshark 抓包 (wireshark &, 选 any)                        │
+│ 对应 PPT 图 1.3                                                    │
+└─────────────────────────────────────────────────────────────────────┘
+
+OpenFlow 协议报文序列:
+  33  0.789s  OFPT_HELLO                       ← 步骤B: Hello 协商
+  35  0.789s  OFPT_HELLO
+  37  0.789s  OFPT_FEATURES_REQUEST            ← 步骤D: 特征请求
+  39  0.790s  OFPT_FEATURES_REPLY              ← 步骤D: 特征响应
+  41  0.790s  OFPT_FLOW_MOD                    ← 下发 table-miss 流表
+  45  0.927s  OFPT_PACKET_IN                   ← 首个包上传
+  47  0.929s  OFPT_PACKET_OUT                  ← 控制器转发
+  54  0.972s  OFPT_PACKET_IN
+  55  0.975s  OFPT_PACKET_OUT
+  ...                                          ← MAC 学习过程中的交互
+
+ICMP (ping) 报文:
+  190  2.801s  10.0.0.1 → 10.0.0.2  Echo request   ← h1 ping h2
+  195  2.804s  10.0.0.1 → 10.0.0.2  Echo request   ← (重传)
+  196  2.804s  10.0.0.2 → 10.0.0.1  Echo reply     ← h2 回复
+  210  2.811s  10.0.0.1 → 10.0.0.3  Echo request   ← h1 ping h3
+  216  2.812s  10.0.0.3 → 10.0.0.1  Echo reply     ← h3 回复
+  ...
+
+关键理解:
+  1. TCP 连接建立后，先交换 Hello (78字节) 协商 OF 版本
+  2. Feature 请求/响应 (76/100字节) 获取交换机 datapath_id
+  3. FLOW_MOD (148字节) 下发 table-miss 规则
+  4. PACKET_IN (196~220字节) = 交换机没有匹配流表条目，上传控制器
+  5. PACKET_OUT (194~218字节) = 控制器决策后指示转发
+
+
+┌─────────────────────────────────────────────────────────────────────┐
+│ 窗口4: OVS 流表 (ovs-ofctl -O OpenFlow13 dump-flows s1)            │
+│ 对应 PPT 图 1.4                                                    │
+└─────────────────────────────────────────────────────────────────────┘
+
+OFPST_FLOW reply (OF1.3) (xid=0x2):
+
+── MAC 自学习流表 (priority=1，精确匹配) ──
+ h1↔h2: in_port=2,dl_src=h2,dl_dst=h1 → actions=output:1
+ h2↔h1: in_port=1,dl_src=h1,dl_dst=h2 → actions=output:2
+ h1↔h3: in_port=3,dl_src=h3,dl_dst=h1 → actions=output:1
+ h3↔h1: in_port=1,dl_src=h1,dl_dst=h3 → actions=output:3
+ h1↔h4: in_port=4,dl_src=h4,dl_dst=h1 → actions=output:1
+ h4↔h1: in_port=1,dl_src=h1,dl_dst=h4 → actions=output:4
+ h2↔h3: in_port=3,dl_src=h3,dl_dst=h2 → actions=output:2
+ h3↔h2: in_port=2,dl_src=h2,dl_dst=h3 → actions=output:3
+ h2↔h4: in_port=4,dl_src=h4,dl_dst=h2 → actions=output:2
+ h4↔h2: in_port=2,dl_src=h2,dl_dst=h4 → actions=output:4
+ h3↔h4: in_port=4,dl_src=h4,dl_dst=h3 → actions=output:3
+ h4↔h3: in_port=3,dl_src=h3,dl_dst=h4 → actions=output:4
+
+── table-miss (priority=0，最低优先级) ──
+ * → actions=CONTROLLER:65535  (未知包上传控制器)
+
+OVS 交换机信息:
+  Bridge s1
+    Controller "tcp:127.0.0.1:6633"    ← 连接到 Ryu
+    Port s1-eth1 → h1                    ← 端口映射
+    Port s1-eth2 → h2
+    Port s1-eth3 → h3
+    Port s1-eth4 → h4
+
+流表项参数解释:
+  cookie      : 流表标识
+  duration    : 该条目存活时间
+  table       : 流表编号 (默认 table 0)
+  n_packets   : 已匹配的包数量
+  n_bytes     : 已匹配的字节数
+  priority    : 优先级 (1>0, 相同按精确度)
+  in_port     : 入端口
+  dl_src/dl_dst : MAC 地址 (dl=数据链路层)
+  actions     : 执行动作 (output:N 从端口N转发)
+
+======================================================================
+  实验完成 ✅  pingall: 12/12, 0% 丢包
+  抓包文件: output/four_windows.pcap
+  用 Mac 原生 Wireshark 打开即可查看图形化抓包界面
+======================================================================

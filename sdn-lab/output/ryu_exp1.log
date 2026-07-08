@@ -1,0 +1,52 @@
+/usr/local/lib/python3.10/dist-packages/ryu/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app ryu.app.simple_switch_13
+loading app ryu.controller.ofp_handler
+instantiating app ryu.app.simple_switch_13 of SimpleSwitch13
+instantiating app ryu.controller.ofp_handler of OFPHandler
+packet in 1 00:00:00:00:00:02 33:33:00:00:00:16 2
+packet in 1 00:00:00:00:00:01 33:33:00:00:00:16 1
+packet in 1 00:00:00:00:00:02 33:33:ff:00:00:02 2
+packet in 1 00:00:00:00:00:01 33:33:ff:00:00:01 1
+packet in 1 00:00:00:00:00:03 33:33:ff:00:00:03 3
+packet in 1 00:00:00:00:00:03 33:33:00:00:00:16 3
+packet in 1 00:00:00:00:00:04 33:33:ff:00:00:04 4
+packet in 1 00:00:00:00:00:04 33:33:00:00:00:16 4
+packet in 1 00:00:00:00:00:02 33:33:00:00:00:16 2
+packet in 1 00:00:00:00:00:02 33:33:00:00:00:02 2
+packet in 1 00:00:00:00:00:01 33:33:00:00:00:16 1
+packet in 1 00:00:00:00:00:01 33:33:00:00:00:02 1
+packet in 1 00:00:00:00:00:03 33:33:00:00:00:16 3
+packet in 1 00:00:00:00:00:03 33:33:00:00:00:02 3
+packet in 1 00:00:00:00:00:03 33:33:00:00:00:16 3
+packet in 1 00:00:00:00:00:04 33:33:00:00:00:16 4
+packet in 1 00:00:00:00:00:04 33:33:00:00:00:02 4
+packet in 1 00:00:00:00:00:01 33:33:00:00:00:16 1
+packet in 1 00:00:00:00:00:02 33:33:00:00:00:16 2
+packet in 1 00:00:00:00:00:04 33:33:00:00:00:16 4
+packet in 1 00:00:00:00:00:01 ff:ff:ff:ff:ff:ff 1
+packet in 1 00:00:00:00:00:02 00:00:00:00:00:01 2
+packet in 1 00:00:00:00:00:01 00:00:00:00:00:02 1
+packet in 1 00:00:00:00:00:01 ff:ff:ff:ff:ff:ff 1
+packet in 1 00:00:00:00:00:03 00:00:00:00:00:01 3
+packet in 1 00:00:00:00:00:01 00:00:00:00:00:03 1
+packet in 1 00:00:00:00:00:01 ff:ff:ff:ff:ff:ff 1
+packet in 1 00:00:00:00:00:04 00:00:00:00:00:01 4
+packet in 1 00:00:00:00:00:01 00:00:00:00:00:04 1
+packet in 1 00:00:00:00:00:02 ff:ff:ff:ff:ff:ff 2
+packet in 1 00:00:00:00:00:03 00:00:00:00:00:02 3
+packet in 1 00:00:00:00:00:02 00:00:00:00:00:03 2
+packet in 1 00:00:00:00:00:02 ff:ff:ff:ff:ff:ff 2
+packet in 1 00:00:00:00:00:04 00:00:00:00:00:02 4
+packet in 1 00:00:00:00:00:02 00:00:00:00:00:04 2
+packet in 1 00:00:00:00:00:03 ff:ff:ff:ff:ff:ff 3
+packet in 1 00:00:00:00:00:04 00:00:00:00:00:03 4
+packet in 1 00:00:00:00:00:03 00:00:00:00:00:04 3

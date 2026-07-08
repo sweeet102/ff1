@@ -1,0 +1,134 @@
+/usr/local/lib/python3.10/dist-packages/ryu/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app app/l4switch.py
+loading app ryu.controller.ofp_handler
+instantiating app app/l4switch.py of L4Switch
+instantiating app ryu.controller.ofp_handler of OFPHandler
+BRICK L4Switch
+  CONSUMES EventOFPPacketIn
+  CONSUMES EventOFPSwitchFeatures
+BRICK ofp_event
+  PROVIDES EventOFPPacketIn TO {'L4Switch': {'main'}}
+  PROVIDES EventOFPSwitchFeatures TO {'L4Switch': {'config'}}
+  CONSUMES EventOFPEchoReply
+  CONSUMES EventOFPEchoRequest
+  CONSUMES EventOFPErrorMsg
+  CONSUMES EventOFPHello
+  CONSUMES EventOFPPortDescStatsReply
+  CONSUMES EventOFPPortStatus
+  CONSUMES EventOFPSwitchFeatures
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffffa32ce530> address:('127.0.0.1', 37260)
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffffa32ce1a0> address:('127.0.0.1', 37264)
+hello ev <ryu.controller.ofp_event.EventOFPHello object at 0xffffa32cfe50>
+move onto config mode
+EVENT ofp_event->L4Switch EventOFPSwitchFeatures
+switch features ev version=0x4,msg_type=0x6,msg_len=0x20,xid=0xc6d6bd8b,OFPSwitchFeatures(auxiliary_id=0,capabilities=79,datapath_id=1,n_buffers=0,n_tables=254)
+move onto main mode
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:04 to 33:33:00:00:00:16, in:4 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to 33:33:ff:00:00:02, in:2 out:4294967291
+L2: packet from 00:00:00:00:00:01 to 33:33:ff:00:00:01, in:1 out:4294967291
+L2: packet from 00:00:00:00:00:03 to 33:33:00:00:00:16, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to 33:33:00:00:00:16, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to 33:33:00:00:00:16, in:2 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 33:33:ff:00:00:03, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to ff:ff:ff:ff:ff:ff, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to 00:00:00:00:00:01, in:2 out:1
+EVENT ofp_event->L4Switch EventOFPPacketIn
+ICMP packet from 10.0.0.1 to 10.0.0.2
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to ff:ff:ff:ff:ff:ff, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+ICMP packet from 10.0.0.1 to 10.0.0.3
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to ff:ff:ff:ff:ff:ff, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+ICMP packet from 10.0.0.1 to 10.0.0.4
+L2: packet from 00:00:00:00:00:04 to 33:33:ff:00:00:04, in:4 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to ff:ff:ff:ff:ff:ff, in:2 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 00:00:00:00:00:02, in:3 out:2
+EVENT ofp_event->L4Switch EventOFPPacketIn
+ICMP packet from 10.0.0.2 to 10.0.0.3
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to ff:ff:ff:ff:ff:ff, in:2 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+ICMP packet from 10.0.0.2 to 10.0.0.4
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to ff:ff:ff:ff:ff:ff, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:04 to 00:00:00:00:00:03, in:4 out:3
+EVENT ofp_event->L4Switch EventOFPPacketIn
+ICMP packet from 10.0.0.3 to 10.0.0.4
+EVENT ofp_event->L4Switch EventOFPPacketIn
+TCP packet from 10.0.0.1:5001 to 10.0.0.4:55210
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+TCP packet from 10.0.0.1:5001 to 10.0.0.4:55210
+TCP packet from 10.0.0.1:5001 to 10.0.0.4:55210
+TCP packet from 10.0.0.1:5001 to 10.0.0.4:55210
+TCP packet from 10.0.0.1:5001 to 10.0.0.4:55210
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to 33:33:00:00:00:16, in:1 out:4294967291
+L2: packet from 00:00:00:00:00:01 to 33:33:00:00:00:02, in:1 out:4294967291
+L2: packet from 00:00:00:00:00:02 to 33:33:00:00:00:16, in:2 out:4294967291
+L2: packet from 00:00:00:00:00:02 to 33:33:00:00:00:02, in:2 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 33:33:00:00:00:16, in:3 out:4294967291
+L2: packet from 00:00:00:00:00:03 to 33:33:00:00:00:02, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 33:33:00:00:00:16, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to 33:33:00:00:00:16, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:04 to 33:33:00:00:00:16, in:4 out:4294967291
+L2: packet from 00:00:00:00:00:04 to 33:33:00:00:00:02, in:4 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to 33:33:00:00:00:16, in:2 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:04 to 33:33:00:00:00:16, in:4 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to 33:33:00:00:00:02, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 33:33:00:00:00:02, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:02 to 33:33:00:00:00:02, in:2 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:04 to 33:33:00:00:00:02, in:4 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 00:00:00:00:00:04, in:3 out:4
+L2: packet from 00:00:00:00:00:02 to 00:00:00:00:00:04, in:2 out:4
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:01 to 33:33:00:00:00:02, in:1 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:03 to 33:33:00:00:00:02, in:3 out:4294967291
+EVENT ofp_event->L4Switch EventOFPPacketIn
+EVENT ofp_event->L4Switch EventOFPPacketIn
+L2: packet from 00:00:00:00:00:04 to 33:33:00:00:00:02, in:4 out:4294967291
+L2: packet from 00:00:00:00:00:02 to 33:33:00:00:00:02, in:2 out:4294967291

@@ -1,0 +1,17 @@
+services:
+  p4-lab:
+    image: p4-lab:latest
+    container_name: p4-lab
+    privileged: true
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
+    volumes:
+      - ./exercises:/root/tutorials/exercises
+      - ./output:/root/lab/output
+    networks:
+      - p4-net
+
+networks:
+  p4-net:
+    driver: bridge

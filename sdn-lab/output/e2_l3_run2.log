@@ -1,0 +1,39 @@
+*** Error setting resource limits. Mininet's performance may be affected.
+*** Configuring hosts
+h1 h2 h3 h4 
+*** Starting controller
+c0 
+*** Starting 1 switches
+s1 ...
+*** Ping: testing ping reachability
+h1 -> h2 h3 h4 
+h2 -> h1 h3 h4 
+h3 -> h1 h2 h4 
+h4 -> h1 h2 h3 
+*** Results: 0% dropped (12/12 received)
+
+root@56a4f0f222ee:~/lab# mn --controller=remote,ip=127.0.0.1 --mac --switch=ovsk,protocols=OpenFlow13 --topo=single,4 --test pingall
+
+
+root@56a4f0f222ee:~/lab# h1 iperf -s &
+
+
+root@56a4f0f222ee:~/lab# h4 iperf -c 10.0.0.1 -t 3
+
+------------------------------------------------------------
+Client connecting to 10.0.0.1, TCP port 5001
+TCP window size: 45.0 KByte (default)
+------------------------------------------------------------
+[  1] local 10.0.0.4 port 51782 connected with 10.0.0.1 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  1] 0.0000-3.0072 sec  35.4 GBytes   101 Gbits/sec
+
+root@56a4f0f222ee:~/lab# *** Stopping 1 controllers
+c0 
+*** Stopping 4 links
+....
+*** Stopping 1 switches
+s1 
+*** Stopping 4 hosts
+h1 h2 h3 h4 
+*** Done

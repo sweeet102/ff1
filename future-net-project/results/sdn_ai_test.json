@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-07-02 08:12:30",
+  "detection_results": [
+    {
+      "src_ip": "10.0.0.1",
+      "class": "normal",
+      "confidence": 0.9665486428435766,
+      "blocked": false
+    },
+    {
+      "src_ip": "10.0.0.2",
+      "class": "normal",
+      "confidence": 0.9665486428435766,
+      "blocked": false
+    },
+    {
+      "src_ip": "10.0.0.3",
+      "class": "syn_flood",
+      "confidence": 0.995,
+      "blocked": true
+    }
+  ],
+  "model_performance": {
+    "accuracy": 1.0,
+    "classes": [
+      "normal",
+      "syn_flood",
+      "udp_flood",
+      "port_scan"
+    ],
+    "top_features": [
+      "syn_count",
+      "flow_byte_count",
+      "flow_pkt_count",
+      "unique_dst_count"
+    ]
+  }
+}

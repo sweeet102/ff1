@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>物品仓库</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div id="app">
+  <aside class="sidebar" :class="{collapsed: sidebarCollapsed}">
+    <div class="sidebar-brand">
+      <span class="brand-icon">W</span>
+      <span class="brand-text" v-show="!sidebarCollapsed">物品仓库</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a :class="{active:page==='items'}" @click="page='items';sidebarCollapsed=mobile" title="物品">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <span v-show="!sidebarCollapsed">物品</span>
+      </a>
+      <a :class="{active:page==='stats'}" @click="page='stats';loadStats();sidebarCollapsed=mobile" title="统计">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <span v-show="!sidebarCollapsed">统计</span>
+      </a>
+      <a :class="{active:page==='categories'}" @click="page='categories';sidebarCollapsed=mobile" title="分类">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        <span v-show="!sidebarCollapsed">分类</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer" v-show="!sidebarCollapsed">
+      <div class="summary-box">
+        <div class="summary-count">{{ items.length }}</div>
+        <div class="summary-label">件物品</div>
+        <div class="summary-total">&yen;{{ totalSpent }}</div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="layout">
+    <header class="topbar">
+      <button class="btn-icon hamburger" @click="sidebarCollapsed=!sidebarCollapsed">☰</button>
+      <span class="topbar-title" v-if="mobile">{{ page==='items'?'物品':page==='stats'?'统计':'分类' }}</span>
+      <div class="spacer"></div>
+      <div v-if="alerts.length" class="alert-badge" @click="page='items'">
+        ⚠ {{ alerts.length }}
+      </div>
+      <button class="btn-icon" @click="toggleTheme" :title="theme==='light'?'深色模式':'浅色模式'">
+        {{ theme === 'light' ? '○' : '●' }}
+      </button>
+      <button class="btn-sm" @click="exportJSON">导出</button>
+      <button class="btn-sm" @click="doBackup">备份</button>
+    </header>
+
+    <main class="content">
+      <div id="vue-status" style="padding:40px;text-align:center;color:var(--text-muted)">
+        <p>⏳ 正在加载...</p>
+        <p style="font-size:12px;margin-top:8px">如果持续显示此信息，请检查网络连接后刷新页面</p>
+      </div>
+      <!-- ===== 物品页 ===== -->
+      <template v-if="page==='items'">
+        <div class="page-header">
+          <h2>物品列表</h2>
+          <button class="btn-add" @click="openAdd">+ 添加物品</button>
+        </div>
+
+        <div v-if="alerts.length" class="alert-bar">
+          <template v-for="a in alerts">
+            <span class="alert-tag">⚠ {{ a.name }} 保修仅剩 {{ a.remaining_days }} 天</span>
+          </template>
+        </div>
+
+        <div class="filters">
+          <div class="search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input v-model="search" placeholder="搜索物品..." @input="filterItems">
+          </div>
+          <select v-model="filterCat" @change="filterItems">
+            <option value="">全部分类</option>
+            <option v-for="c in categories" :value="c.id">{{ c.icon }} {{ c.name }}</option>
+          </select>
+          <select v-model="filterStatus" @change="filterItems">
+            <option value="">全部状态</option>
+            <option value="在用">在用</option>
+            <option value="已卖">已卖</option>
+            <option value="已坏">已坏</option>
+            <option value="已丢">已丢</option>
+          </select>
+        </div>
+
+        <div v-if="filtered.length===0" class="empty-state">
+          <div class="empty-icon">+</div>
+          <p>还没有物品</p>
+          <button class="btn-add" @click="openAdd">添加第一件物品</button>
+        </div>
+
+        <div class="grid">
+          <div v-for="item in filtered" :key="item.id" class="card" @click="openDetail(item)">
+            <div class="card-image">
+              <img v-if="item.photo_path" :src="'/api/items/'+item.id+'/photo'" :alt="item.name">
+              <span v-else class="card-emoji">{{ catIcon(item.category_id) }}</span>
+            </div>
+            <div class="card-body">
+              <h3>{{ item.name }}</h3>
+              <div class="card-tags">
+                <span class="tag-cat">{{ catName(item.category_id) }}</span>
+                <span :class="'tag-status tag-'+item.status">{{ item.status }}</span>
+              </div>
+              <div class="card-price">&yen;{{ item.price.toFixed(2) }}</div>
+              <div class="card-meta">{{ item.held_days }}天 · &yen;{{ item.cost_per_day }}/天</div>
+            </div>
+          </div>
+        </div>
+      </template>
+
+      <!-- ===== 统计页 ===== -->
+      <template v-if="page==='stats'">
+        <div class="page-header"><h2>统计面板</h2></div>
+        <div class="stats-row">
+          <div class="stat-item"><span class="stat-num">&yen;{{ stats.total_spent }}</span><span class="stat-desc">总花费</span></div>
+          <div class="stat-item"><span class="stat-num">&yen;{{ stats.active_value }}</span><span class="stat-desc">在用价值</span></div>
+          <div class="stat-item"><span class="stat-num">{{ stats.item_count }}</span><span class="stat-desc">物品总数</span></div>
+          <div class="stat-item"><span class="stat-num">{{ stats.active_count }}/{{ stats.disposed_count }}</span><span class="stat-desc">在用/已处置</span></div>
+        </div>
+        <div class="charts-row">
+          <div class="chart-card"><h4>分类占比</h4><canvas id="pieChart"></canvas></div>
+          <div class="chart-card"><h4>月度趋势</h4><canvas id="monthChart"></canvas></div>
+        </div>
+        <div class="charts-row">
+          <div class="chart-card"><h4>年度总计</h4><canvas id="yearChart"></canvas></div>
+          <div class="chart-card"><h4>日均成本 Top10</h4><canvas id="costChart"></canvas></div>
+        </div>
+      </template>
+
+      <!-- ===== 分类页 ===== -->
+      <template v-if="page==='categories'">
+        <div class="page-header">
+          <h2>分类管理</h2>
+          <button class="btn-add" @click="showCatForm=true;catForm={name:'',icon:''}">+ 添加</button>
+        </div>
+        <div class="cat-grid">
+          <div v-for="c in categories" :key="c.id" class="cat-card">
+            <span class="cat-icon-lg">{{ c.icon }}</span>
+            <span class="cat-title">{{ c.name }}</span>
+            <div class="cat-ops">
+              <button class="btn-sm" @click="editCat(c)">编辑</button>
+              <button class="btn-sm danger" @click="deleteCat(c.id)">删除</button>
+            </div>
+          </div>
+        </div>
+      </template>
+    </main>
+  </div>
+
+  <!-- ===== 物品详情弹窗 ===== -->
+  <div v-if="detailItem" class="overlay" @click.self="detailItem=null">
+    <div class="dialog detail-dialog">
+      <button class="dialog-close" @click="detailItem=null">&times;</button>
+      <div class="detail-top">
+        <div class="detail-img">
+          <img v-if="detailItem.photo_path" :src="'/api/items/'+detailItem.id+'/photo'" :alt="detailItem.name">
+          <span v-else class="card-emoji large">{{ catIcon(detailItem.category_id) }}</span>
+        </div>
+        <div>
+          <h2>{{ detailItem.name }}</h2>
+          <div style="display:flex;gap:8px;margin:8px 0">
+            <span class="tag-cat">{{ catName(detailItem.category_id) }}</span>
+            <span :class="'tag-status tag-'+detailItem.status">{{ detailItem.status }}</span>
+          </div>
+          <div style="font-size:32px;font-weight:700;color:var(--accent)">&yen;{{ detailItem.price.toFixed(2) }}</div>
+        </div>
+      </div>
+      <div class="detail-numbers">
+        <div><strong>{{ detailItem.held_days }}</strong><br>持有天数</div>
+        <div><strong>&yen;{{ detailItem.cost_per_day }}</strong><br>实际日均</div>
+        <div v-if="detailItem.expected_cost_per_day"><strong>&yen;{{ detailItem.expected_cost_per_day }}</strong><br>预计日均</div>
+        <div v-if="detailItem.warranty_remaining_days !== null" :class="{'warn':detailItem.warranty_remaining_days<=30}"><strong>{{ detailItem.warranty_remaining_days }}</strong><br>保修剩余</div>
+      </div>
+      <table class="detail-table">
+        <tr><td>购买日期</td><td>{{ detailItem.purchase_date }}</td></tr>
+        <tr v-if="detailItem.disposal_date"><td>处置日期</td><td>{{ detailItem.disposal_date }}</td></tr>
+        <tr v-if="detailItem.expected_lifespan_months"><td>预计寿命</td><td>{{ detailItem.expected_lifespan_months }} 个月</td></tr>
+        <tr v-if="detailItem.warranty_months"><td>保修期限</td><td>{{ detailItem.warranty_months }} 个月</td></tr>
+        <tr v-if="detailItem.notes"><td>备注</td><td>{{ detailItem.notes }}</td></tr>
+      </table>
+      <div style="display:flex;gap:12px;margin-top:20px">
+        <button class="btn-add" @click="openEdit(detailItem)" style="flex:1">编辑</button>
+        <button class="btn-sm danger" @click="deleteItem(detailItem.id)">删除</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 编辑弹窗 ===== -->
+  <div v-if="showForm" class="overlay" @click.self="showForm=false">
+    <div class="dialog form-dialog">
+      <button class="dialog-close" @click="showForm=false">&times;</button>
+      <h2>{{ editingItem ? '编辑物品' : '添加物品' }}</h2>
+      <form @submit.prevent="saveItem" class="item-form">
+        <label>
+          <span>名称 *</span>
+          <input v-model="form.name" required placeholder="例如：iPhone 15 Pro">
+        </label>
+        <div class="form-cols">
+          <label>
+            <span>分类</span>
+            <select v-model="form.category_id">
+              <option :value="null">无</option>
+              <option v-for="c in categories" :value="c.id">{{ c.icon }} {{ c.name }}</option>
+            </select>
+          </label>
+          <label>
+            <span>价格 *</span>
+            <input v-model.number="form.price" type="number" step="0.01" required placeholder="0.00">
+          </label>
+        </div>
+        <div class="form-cols">
+          <label>
+            <span>购买日期 *</span>
+            <input v-model="form.purchase_date" type="date" required>
+          </label>
+          <label>
+            <span>状态</span>
+            <select v-model="form.status">
+              <option value="在用">在用</option>
+              <option value="已卖">已卖</option>
+              <option value="已坏">已坏</option>
+              <option value="已丢">已丢</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-cols cols-3">
+          <label>
+            <span>预计寿命(月)</span>
+            <input v-model.number="form.expected_lifespan_months" type="number" placeholder="36">
+          </label>
+          <label>
+            <span>保修(月)</span>
+            <input v-model.number="form.warranty_months" type="number" placeholder="12">
+          </label>
+          <label v-if="form.status!=='在用'">
+            <span>处置日期</span>
+            <input v-model="form.disposal_date" type="date">
+          </label>
+        </div>
+        <label>
+          <span>备注</span>
+          <textarea v-model="form.notes" rows="2" placeholder="购买渠道、使用感受..."></textarea>
+        </label>
+        <label>
+          <span>照片</span>
+          <div class="photo-section">
+            <input type="file" accept="image/*" @change="onPhotoFile" ref="fileInput" class="file-input">
+            <span class="file-hint">点击选择本地图片</span>
+            <span style="color:var(--text-muted);font-size:12px">或输入关键词搜图</span>
+            <div class="photo-search-row">
+              <input v-model="photoQuery" placeholder="搜索关键词..." @keyup.enter="searchPhoto">
+              <button type="button" class="btn-sm" @click="searchPhoto">搜索</button>
+            </div>
+          </div>
+          <div v-if="photoResults.length" class="photo-grid">
+            <img v-for="(p,i) in photoResults" :key="i" :src="p.thumb" @click="pickPhoto(p.url)">
+          </div>
+          <img v-if="formPhotoPreview" :src="formPhotoPreview" class="preview-img">
+        </label>
+        <button type="submit" class="btn-add full-width">保存</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== 分类弹窗 ===== -->
+  <div v-if="showCatForm" class="overlay" @click.self="showCatForm=false">
+    <div class="dialog form-dialog" style="max-width:360px">
+      <button class="dialog-close" @click="showCatForm=false">&times;</button>
+      <h3>{{ catForm.id ? '编辑' : '添加' }}分类</h3>
+      <form @submit.prevent="saveCat">
+        <label><span>图标</span><input v-model="catForm.icon" placeholder="选择一个 emoji" style="font-size:20px"></label>
+        <label><span>名称</span><input v-model="catForm.name" required placeholder="分类名称"></label>
+        <button class="btn-add full-width" style="margin-top:12px">保存</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+<script>if(typeof Vue==='undefined'){var s=document.createElement('script');s.src='https://unpkg.com/vue@3/dist/vue.global.prod.js';document.head.appendChild(s)}</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

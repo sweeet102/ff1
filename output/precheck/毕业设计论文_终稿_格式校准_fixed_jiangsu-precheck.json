@@ -1,0 +1,906 @@
+{
+  "input_file": "/Users/wenzhiyuan/Desktop/ff1/output/毕业设计论文_终稿_格式校准_fixed.docx",
+  "generated_at": "2026-06-25 14:02:07",
+  "status": "review-needed",
+  "status_label": "无 ERROR，但需复核 WARN",
+  "finding_counts": {
+    "ERROR": 0,
+    "WARN": 52,
+    "REMIND": 15,
+    "INFO": 2
+  },
+  "findings": [
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学院名称'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'专业班级'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生学号'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师职称'"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 7",
+      "message": "中文文字字体应为宋体，检测到 '黑体'：基于低复杂度选择映射算法的OFDM系统峰均比抑制研究与MATLAB复现"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 7",
+      "message": "同一 run 中混合中文和英文/数字，字体为'黑体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 25",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 25",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 26",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 26",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 27",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 27",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 28",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 28",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 30",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 30",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 31",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 31",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 32",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 32",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 33",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 33",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 34",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 34",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 35",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 35",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 37",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 37",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 38",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 38",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 39",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 39",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 40",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 40",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 41",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 41",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 43",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 43",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 44",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 44",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 45",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 45",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 46",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 46",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 48",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 48",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 49",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 49",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 50",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 50",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 51",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 51",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 80",
+      "message": "括号全角/半角混用"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 103",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 115",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 121",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 125",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 127",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 129",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 255",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[26] 周杰, Esono Mikue Bernardo Esono, 王学英"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 255",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 256",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[27] 马英杰, 赵耿, 魏占祯, 等. 基于量子混沌映射降低OFDM系统PA"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 256",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 257",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[28] 季策, 祝雯靖, 魏颖, 等. 降低OFDM系统PAPR的改进SLM算"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 257",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "INFO",
+      "location": "document",
+      "message": "参考文献共 28 篇，其中外文 25 篇"
+    },
+    {
+      "level": "INFO",
+      "location": "document.xml",
+      "message": "TOC fields=2, PAGE fields=5, OMath objects=0"
+    }
+  ],
+  "raw_findings": [
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学院名称'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'专业班级'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生学号'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师职称'"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 7",
+      "message": "中文文字字体应为宋体，检测到 '黑体'：基于低复杂度选择映射算法的OFDM系统峰均比抑制研究与MATLAB复现"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 7",
+      "message": "同一 run 中混合中文和英文/数字，字体为'黑体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 25",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 25",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 26",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 26",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 27",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 27",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 28",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 28",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 30",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 30",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 31",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 31",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 32",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 32",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 33",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 33",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 34",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 34",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 35",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 35",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 37",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 37",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 38",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 38",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 39",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 39",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 40",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 40",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 41",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 41",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 43",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 43",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 44",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 44",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 45",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 45",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 46",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 46",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 48",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 48",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 49",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 49",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 50",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 50",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 51",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 51",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 80",
+      "message": "括号全角/半角混用"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 103",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 115",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 121",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 125",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 127",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 129",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 255",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[26] 周杰, Esono Mikue Bernardo Esono, 王学英"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 255",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 256",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[27] 马英杰, 赵耿, 魏占祯, 等. 基于量子混沌映射降低OFDM系统PA"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 256",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 257",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[28] 季策, 祝雯靖, 魏颖, 等. 降低OFDM系统PAPR的改进SLM算"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 257",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "INFO",
+      "location": "document",
+      "message": "参考文献共 28 篇，其中外文 25 篇"
+    },
+    {
+      "level": "INFO",
+      "location": "document.xml",
+      "message": "TOC fields=2, PAGE fields=5, OMath objects=0"
+    }
+  ],
+  "top_errors": [],
+  "top_warnings": [
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学院名称'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'专业班级'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生学号'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师职称'"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 25",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 25",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 26",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 26",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 27",
+      "message": "二级标题应加粗"
+    },
+    {
+      "level": "WARN",
+      "location": "paragraph 27",
+      "message": "二级标题字号应为四号 14pt，检测到 [12.0]"
+    }
+  ],
+  "top_reminders": [
+    {
+      "level": "REMIND",
+      "location": "paragraph 7",
+      "message": "中文文字字体应为宋体，检测到 '黑体'：基于低复杂度选择映射算法的OFDM系统峰均比抑制研究与MATLAB复现"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 7",
+      "message": "同一 run 中混合中文和英文/数字，字体为'黑体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 80",
+      "message": "括号全角/半角混用"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 103",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 115",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 121",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 125",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 127",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 129",
+      "message": "同一 run 中混合中文和英文/数字，字体为'宋体'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 255",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[26] 周杰, Esono Mikue Bernardo Esono, 王学英"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 255",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 256",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[27] 马英杰, 赵耿, 魏占祯, 等. 基于量子混沌映射降低OFDM系统PA"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 256",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 257",
+      "message": "中文文字字体应为宋体，检测到 'Times New Roman'：[28] 季策, 祝雯靖, 魏颖, 等. 降低OFDM系统PAPR的改进SLM算"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 257",
+      "message": "同一 run 中混合中文和英文/数字，字体为'Times New Roman'；建议英文和数字单独设为 Times New Roman"
+    }
+  ],
+  "structure": {
+    "section_count": 2,
+    "paragraph_count": 235,
+    "table_count": 3,
+    "sections": [
+      {
+        "section": 1,
+        "page_width_cm": 21.0,
+        "page_height_cm": 29.7,
+        "top_margin_cm": 2.54,
+        "bottom_margin_cm": 2.54,
+        "left_margin_cm": 2.22,
+        "right_margin_cm": 1.95,
+        "header_distance_cm": 1.5,
+        "footer_distance_cm": 1.75,
+        "different_first_page": false,
+        "header": "",
+        "even_header": "",
+        "footer": ""
+      },
+      {
+        "section": 2,
+        "page_width_cm": 21.0,
+        "page_height_cm": 29.7,
+        "top_margin_cm": 2.54,
+        "bottom_margin_cm": 2.54,
+        "left_margin_cm": 2.22,
+        "right_margin_cm": 1.95,
+        "header_distance_cm": 1.5,
+        "footer_distance_cm": 1.75,
+        "different_first_page": false,
+        "header": "",
+        "even_header": "",
+        "footer": ""
+      }
+    ],
+    "xml_counts": {
+      "toc_fields": 2,
+      "page_fields": 5,
+      "omath_objects": 0
+    }
+  },
+  "word_header_audit": {
+    "available": false,
+    "reason": "Word COM audit only runs on Windows"
+  },
+  "word_header_issues": [],
+  "hidden_header_residue": [],
+  "school_detection_report": null,
+  "outputs": {
+    "json": "/Users/wenzhiyuan/Desktop/ff1/output/precheck/毕业设计论文_终稿_格式校准_fixed_jiangsu-precheck.json",
+    "markdown": "/Users/wenzhiyuan/Desktop/ff1/output/precheck/毕业设计论文_终稿_格式校准_fixed_jiangsu-precheck.md"
+  },
+  "manual_review": [
+    "在 Word 中全选并更新域，重点更新目录页码。",
+    "导出 PDF 后抽查封面、原创性声明、摘要、目录、第 1 章首页、每章首页、图表密集页、参考文献、致谢页。",
+    "确认前置部分（声明/摘要/目录）页码使用罗马数字，正文页码使用阿拉伯数字。",
+    "确认每章从新页开始。",
+    "学校检测机会有限时，先把本报告中的 ERROR 清零，再处理 WARN 和高频 REMIND。"
+  ]
+}

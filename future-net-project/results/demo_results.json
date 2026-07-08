@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-07-02 08:01:34",
+  "model": {
+    "type": "Random Forest",
+    "accuracy": 1.0,
+    "features": 13,
+    "classes": [
+      "normal",
+      "syn_flood",
+      "udp_flood",
+      "port_scan"
+    ]
+  },
+  "detection_test": {
+    "total_flows": 100,
+    "normal_detected": 50,
+    "attacks_detected": 50
+  },
+  "performance": {
+    "throughput_mbps": {
+      "normal": {
+        "throughput": 935,
+        "latency": 1.2,
+        "loss": 0.0
+      },
+      "attack": {
+        "throughput": 8,
+        "latency": 520,
+        "loss": 94.0
+      },
+      "blocked": {
+        "throughput": 910,
+        "latency": 2.5,
+        "loss": 0.0
+      }
+    },
+    "detection_time_s": 4,
+    "response_time_s": 1
+  },
+  "topology": {
+    "hosts": [
+      "h1(normal)",
+      "h2(normal)",
+      "h3(attacker)",
+      "h4(server)"
+    ],
+    "switch": "OVS (OpenFlow 1.3)",
+    "controller": "Ryu + AI"
+  }
+}

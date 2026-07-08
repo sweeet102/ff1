@@ -1,0 +1,76 @@
+/usr/local/lib/python3.10/dist-packages/ryu/lib/hub.py:30: EventletDeprecationWarning: 
+Eventlet is deprecated. It is currently being maintained in bugfix mode, and
+we strongly recommend against using it for new projects.
+
+If you are already using Eventlet, we recommend migrating to a different
+framework.  For more detail see
+https://eventlet.readthedocs.io/en/latest/asyncio/migration.html
+
+  import eventlet
+1 RLock(s) were not greened, to fix this error make sure you run eventlet.monkey_patch() before importing any other modules.
+loading app app/lb.py
+loading app ryu.controller.ofp_handler
+instantiating app app/lb.py of LoadBalancer
+instantiating app ryu.controller.ofp_handler of OFPHandler
+BRICK LoadBalancer
+  CONSUMES EventOFPPacketIn
+  CONSUMES EventOFPSwitchFeatures
+BRICK ofp_event
+  PROVIDES EventOFPPacketIn TO {'LoadBalancer': {'main'}}
+  PROVIDES EventOFPSwitchFeatures TO {'LoadBalancer': {'config'}}
+  CONSUMES EventOFPEchoReply
+  CONSUMES EventOFPEchoRequest
+  CONSUMES EventOFPErrorMsg
+  CONSUMES EventOFPHello
+  CONSUMES EventOFPPortDescStatsReply
+  CONSUMES EventOFPPortStatus
+  CONSUMES EventOFPSwitchFeatures
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffff88b7a230> address:('127.0.0.1', 56504)
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffff88b79f60> address:('127.0.0.1', 56518)
+hello ev <ryu.controller.ofp_event.EventOFPHello object at 0xffff88b7be80>
+move onto config mode
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffff88b79ff0> address:('127.0.0.1', 56530)
+hello ev <ryu.controller.ofp_event.EventOFPHello object at 0xffff88af8730>
+move onto config mode
+EVENT ofp_event->LoadBalancer EventOFPSwitchFeatures
+switch features ev version=0x4,msg_type=0x6,msg_len=0x20,xid=0x2e01267b,OFPSwitchFeatures(auxiliary_id=0,capabilities=79,datapath_id=1,n_buffers=0,n_tables=254)
+LoadBalancer: Exception occurred during handler processing. Backtrace from offending handler [switch_features_handler] servicing event [EventOFPSwitchFeatures] follows.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/ryu/base/app_manager.py", line 290, in _event_loop
+    handler(ev)
+  File "/root/lab/app/lb.py", line 97, in switch_features_handler
+    self.send_group_mod(datapath)
+  File "/root/lab/app/lb.py", line 55, in send_group_mod
+    buckets = [parser.OFPBucket(LB_WEIGHT1, watch_port, watch_group,
+NameError: name 'LB_WEIGHT1' is not defined
+move onto main mode
+EVENT ofp_event->LoadBalancer EventOFPSwitchFeatures
+switch features ev version=0x4,msg_type=0x6,msg_len=0x20,xid=0x561a9c0b,OFPSwitchFeatures(auxiliary_id=0,capabilities=79,datapath_id=2,n_buffers=0,n_tables=254)
+Switch 2 (transit) configured
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffff88b7bfa0> address:('127.0.0.1', 56544)
+hello ev <ryu.controller.ofp_event.EventOFPHello object at 0xffff88af9060>
+move onto config mode
+move onto main mode
+EVENT ofp_event->LoadBalancer EventOFPSwitchFeatures
+switch features ev version=0x4,msg_type=0x6,msg_len=0x20,xid=0x8e819d1e,OFPSwitchFeatures(auxiliary_id=0,capabilities=79,datapath_id=3,n_buffers=0,n_tables=254)
+Switch 3 (transit) configured
+move onto main mode
+connected socket:<eventlet.greenio.base.GreenSocket object at 0xffff88af87c0> address:('127.0.0.1', 56554)
+hello ev <ryu.controller.ofp_event.EventOFPHello object at 0xffff88af9b10>
+move onto config mode
+EVENT ofp_event->LoadBalancer EventOFPSwitchFeatures
+switch features ev version=0x4,msg_type=0x6,msg_len=0x20,xid=0x9dd05f8b,OFPSwitchFeatures(auxiliary_id=0,capabilities=79,datapath_id=4,n_buffers=0,n_tables=254)
+LoadBalancer: Exception occurred during handler processing. Backtrace from offending handler [switch_features_handler] servicing event [EventOFPSwitchFeatures] follows.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/ryu/base/app_manager.py", line 290, in _event_loop
+    handler(ev)
+  File "/root/lab/app/lb.py", line 115, in switch_features_handler
+    self.send_group_mod(datapath)
+  File "/root/lab/app/lb.py", line 55, in send_group_mod
+    buckets = [parser.OFPBucket(LB_WEIGHT1, watch_port, watch_group,
+NameError: name 'LB_WEIGHT1' is not defined
+move onto main mode
+EVENT ofp_event->LoadBalancer EventOFPPacketIn
+EVENT ofp_event->LoadBalancer EventOFPPacketIn
+EVENT ofp_event->LoadBalancer EventOFPPacketIn
+EVENT ofp_event->LoadBalancer EventOFPPacketIn

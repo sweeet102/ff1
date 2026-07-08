@@ -1,0 +1,221 @@
+{
+  "input_file": "/Users/wenzhiyuan/Desktop/ff1/output/光纤通信课程报告_FWM_jiangsu-formatted_fixed_20260624_202821.docx",
+  "generated_at": "2026-06-24 20:32:02",
+  "status": "review-needed",
+  "status_label": "无 ERROR，但需复核 WARN",
+  "finding_counts": {
+    "ERROR": 0,
+    "WARN": 6,
+    "REMIND": 2,
+    "INFO": 2
+  },
+  "findings": [
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学院名称'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'专业班级'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生学号'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师职称'"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 28",
+      "message": "括号全角/半角混用"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 37",
+      "message": "中文段落中出现半角双引号，通常应改为中文引号"
+    },
+    {
+      "level": "INFO",
+      "location": "document",
+      "message": "参考文献共 45 篇，其中外文 33 篇"
+    },
+    {
+      "level": "INFO",
+      "location": "document.xml",
+      "message": "TOC fields=1, PAGE fields=2, OMath objects=0"
+    }
+  ],
+  "raw_findings": [
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学院名称'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'专业班级'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生学号'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师职称'"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 28",
+      "message": "括号全角/半角混用"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 37",
+      "message": "中文段落中出现半角双引号，通常应改为中文引号"
+    },
+    {
+      "level": "INFO",
+      "location": "document",
+      "message": "参考文献共 45 篇，其中外文 33 篇"
+    },
+    {
+      "level": "INFO",
+      "location": "document.xml",
+      "message": "TOC fields=1, PAGE fields=2, OMath objects=0"
+    }
+  ],
+  "top_errors": [],
+  "top_warnings": [
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学院名称'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'专业班级'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'学生学号'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师姓名'"
+    },
+    {
+      "level": "WARN",
+      "location": "cover table",
+      "message": "封面表格中未找到字段'指导教师职称'"
+    }
+  ],
+  "top_reminders": [
+    {
+      "level": "REMIND",
+      "location": "paragraph 28",
+      "message": "括号全角/半角混用"
+    },
+    {
+      "level": "REMIND",
+      "location": "paragraph 37",
+      "message": "中文段落中出现半角双引号，通常应改为中文引号"
+    }
+  ],
+  "structure": {
+    "section_count": 2,
+    "paragraph_count": 232,
+    "table_count": 2,
+    "sections": [
+      {
+        "section": 1,
+        "page_width_cm": 21.0,
+        "page_height_cm": 29.7,
+        "top_margin_cm": 2.54,
+        "bottom_margin_cm": 2.54,
+        "left_margin_cm": 2.22,
+        "right_margin_cm": 1.95,
+        "header_distance_cm": 1.5,
+        "footer_distance_cm": 1.75,
+        "different_first_page": true,
+        "header": "江苏大学本科毕业设计（论文）",
+        "even_header": "",
+        "footer": ""
+      },
+      {
+        "section": 2,
+        "page_width_cm": 21.0,
+        "page_height_cm": 29.7,
+        "top_margin_cm": 2.54,
+        "bottom_margin_cm": 2.54,
+        "left_margin_cm": 2.22,
+        "right_margin_cm": 1.95,
+        "header_distance_cm": 1.5,
+        "footer_distance_cm": 1.75,
+        "different_first_page": false,
+        "header": "江苏大学本科毕业设计（论文）",
+        "even_header": "",
+        "footer": ""
+      }
+    ],
+    "xml_counts": {
+      "toc_fields": 1,
+      "page_fields": 2,
+      "omath_objects": 0
+    }
+  },
+  "word_header_audit": {
+    "available": false,
+    "reason": "Word COM audit only runs on Windows"
+  },
+  "word_header_issues": [],
+  "hidden_header_residue": [],
+  "school_detection_report": null,
+  "outputs": {
+    "json": "/Users/wenzhiyuan/Desktop/ff1/output/precheck/光纤通信课程报告_FWM_jiangsu-formatted_fixed_20260624_202821_jiangsu-precheck.json",
+    "markdown": "/Users/wenzhiyuan/Desktop/ff1/output/precheck/光纤通信课程报告_FWM_jiangsu-formatted_fixed_20260624_202821_jiangsu-precheck.md"
+  },
+  "manual_review": [
+    "在 Word 中全选并更新域，重点更新目录页码。",
+    "导出 PDF 后抽查封面、原创性声明、摘要、目录、第 1 章首页、每章首页、图表密集页、参考文献、致谢页。",
+    "确认前置部分（声明/摘要/目录）页码使用罗马数字，正文页码使用阿拉伯数字。",
+    "确认每章从新页开始。",
+    "学校检测机会有限时，先把本报告中的 ERROR 清零，再处理 WARN 和高频 REMIND。"
+  ]
+}

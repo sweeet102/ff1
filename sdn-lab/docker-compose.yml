@@ -1,0 +1,29 @@
+services:
+  sdn-lab:
+    build: .
+    image: sdn-lab:latest
+    container_name: sdn-lab
+    privileged: true
+    stdin_open: true
+    tty: true
+    command: ["/bin/bash"]
+    environment:
+      - DISPLAY=${DISPLAY:-host.docker.internal:0}
+    ports:
+      - "6633:6633"
+      - "8080:8080"
+      - "5005:5005"
+    volumes:
+      - ./topo:/root/lab/topo
+      - ./app:/root/lab/app
+      - ./output:/root/lab/output
+      - ../future-net-project:/root/future-net-project
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - sdn-net
+
+networks:
+  sdn-net:
+    driver: bridge
